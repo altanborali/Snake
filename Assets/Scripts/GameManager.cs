@@ -85,13 +85,13 @@ namespace SA
             onStart.Invoke();
             MainCamOrthogroSize();
 
-            if (MenuCtrl.instance.moveRate == 0.25f)
+            if (MenuCtrl.instance.moveRate == 0.20f)
             {
                 highScore = PlayerPrefs.GetInt("easy");
                 Debug.Log("oldScore: " + highScore);
             }
 
-            if (MenuCtrl.instance.moveRate == 0.15f)
+            if (MenuCtrl.instance.moveRate == 0.12f)
             {
                 highScore = PlayerPrefs.GetInt("normal");
             }
@@ -133,6 +133,7 @@ namespace SA
             currentScore = 0;
             UpdateScore();
             AdsManager();
+            StartCoroutine(TakeSs());
         }
 
         public void ClearReferences()
@@ -238,6 +239,7 @@ namespace SA
             playerObj.transform.localScale = Vector3.one * 1.2f;
 
             tailParent = new GameObject("tailParent");
+            
 
         }
 
@@ -327,18 +329,32 @@ namespace SA
         }
 
 
+        IEnumerator TakeSs()
+        {
+            int no = 1;
+            string name = "2048.2732 gameview" + no + ".png";
+
+            while (true)
+            {
+                yield return new WaitForSeconds(5);
+                ScreenCapture.CaptureScreenshot(name);
+                no++;
+                name = "2048.2732 gameview" + no + ".png";
+            }
+        }
+
         void GetInput()
         {
-            /*up = Input.GetButtonDown("Up");  //PC için
+            up = Input.GetButtonDown("Up");  //PC için
             //Debug.Log("Up" + Input.GetButtonDown("Up"));
             left = Input.GetButtonDown("Left");  //PC için
             right = Input.GetButtonDown("Right");  //PC için
-            down = Input.GetButtonDown("Down");  */  //PC için 
+            down = Input.GetButtonDown("Down");    //PC için 
             
 
             //telefon için aşağıda
 
-            if (Input.touchCount == 1) // user is touching the screen with a single touch
+            /*if (Input.touchCount == 1) // user is touching the screen with a single touch
             {
                 Touch touch = Input.GetTouch(0); // get the touch
                 if (touch.phase == TouchPhase.Began) //check for the first touch
@@ -411,7 +427,7 @@ namespace SA
                         tap = true;
                     }
                 }
-            }   //buraya kadar
+            } */  //buraya kadar
 
         }
 
@@ -632,8 +648,9 @@ namespace SA
             isGameOver = true;
             isFirstInput = false;
             int oldScore ;
+            //StartCoroutine(TakeSs());
 
-            if(MenuCtrl.instance.moveRate == 0.20f)
+            if (MenuCtrl.instance.moveRate == 0.20f)
             {
                 oldScore = PlayerPrefs.GetInt("easy");
                 Debug.Log("oldScore: " + oldScore);

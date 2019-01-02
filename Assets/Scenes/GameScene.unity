@@ -1375,7 +1375,7 @@ MonoBehaviour:
   maxHeight: 20
   maxWidth: 17
   color1: {r: 0.0141509175, g: 1, b: 0.07074734, a: 1}
-  color2: {r: 0.015686275, g: 1, b: 0.07058824, a: 0.972549}
+  color2: {r: 0.015686275, g: 1, b: 0.07058824, a: 0.95686275}
   playerColor: {r: 0.9803922, g: 0.43529415, b: 0, a: 1}
   appleColor: {r: 1, g: 0, b: 0, a: 1}
   cameraHolder: {fileID: 705675982}

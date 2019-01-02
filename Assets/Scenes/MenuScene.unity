@@ -1382,7 +1382,7 @@ MonoBehaviour:
   easyBtn: {fileID: 1510800231}
   normalBtn: {fileID: 448597136}
   hardBtn: {fileID: 1968605540}
-  moveRate: 0.15
+  moveRate: 0.12
 --- !u!224 &1905657437
 RectTransform:
   m_ObjectHideFlags: 0
